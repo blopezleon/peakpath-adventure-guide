@@ -42,36 +42,28 @@ const Input = () => {
                 <label className="text-sm font-medium text-white">
                   Skill Level
                 </label>
-                <select
+                <input
+                  type="text"
                   value={skillLevel}
                   onChange={(e) => setSkillLevel(e.target.value)}
                   className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white"
+                  placeholder="Enter your skill level"
                   required
-                >
-                  <option value="" disabled>Select your skill level</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="advanced">Advanced</option>
-                  <option value="expert">Expert</option>
-                </select>
+                />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white">
                   Time Frame
                 </label>
-                <select
+                <input
+                  type="text"
                   value={timeFrame}
                   onChange={(e) => setTimeFrame(e.target.value)}
                   className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white"
+                  placeholder="Enter your time frame"
                   required
-                >
-                  <option value="" disabled>Select your time frame</option>
-                  <option value="half-day">Half Day</option>
-                  <option value="full-day">Full Day</option>
-                  <option value="weekend">Weekend</option>
-                  <option value="week">Week</option>
-                </select>
+                />
               </div>
 
               <Button
