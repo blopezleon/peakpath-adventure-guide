@@ -1,108 +1,113 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PeakPath</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+import { useNavigate } from "react-router-dom";
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+const Index = () => {
+  const navigate = useNavigate();
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            position: relative;
-            overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e');
-            background-size: cover;
-            background-position: center;
-        }
+  return (
+    <div 
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        position: "relative",
+        overflow: "hidden",
+        backgroundImage: "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div 
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+        }}
+      />
+      
+      <div 
+        style={{
+          position: "relative",
+          zIndex: 10,
+          textAlign: "center",
+          animation: "fadeIn 0.5s ease-out",
+        }}
+      >
+        <h1 
+          style={{
+            fontSize: "4rem",
+            fontWeight: "bold",
+            color: "white",
+            marginBottom: "1.5rem",
+          }}
+        >
+          PeakPath
+        </h1>
+        <p 
+          style={{
+            fontSize: "1.25rem",
+            color: "rgba(255, 255, 255, 0.9)",
+            marginBottom: "2rem",
+            maxWidth: "28rem",
+          }}
+        >
+          Your personalized guide to mountain adventures
+        </p>
+        <a
+          href="/input"
+          style={{
+            display: "inline-block",
+            padding: "1.5rem 2rem",
+            fontSize: "1.125rem",
+            color: "white",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "0.5rem",
+            cursor: "pointer",
+            textDecoration: "none",
+            transition: "all 0.3s ease",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+          }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.transform = "scale(0.95)";
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+          }}
+        >
+          Begin Your Journey
+        </a>
+      </div>
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .title {
-            font-size: 4rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            max-width: 28rem;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 1.5rem 2rem;
-            font-size: 1.125rem;
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.5rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            transform: scale(1.05);
-        }
-
-        .button:active {
-            transform: scale(0.95);
-        }
-
-        @keyframes fadeIn {
+      <style>
+        {`
+          @media (min-width: 768px) {
+            h1 {
+              font-size: 5rem;
+            }
+          }
+          
+          @keyframes fadeIn {
             from {
-                opacity: 0;
+              opacity: 0;
             }
             to {
-                opacity: 1;
+              opacity: 1;
             }
-        }
-
-        @media (min-width: 768px) {
-            .title {
-                font-size: 5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="hero">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1 class="title">PeakPath</h1>
-            <p class="description">Your personalized guide to mountain adventures</p>
-            <a href="/input" class="button">Begin Your Journey</a>
-        </div>
+          }
+        `}
+      </style>
     </div>
-</body>
-</html>
+  );
+};
+
+export default Index;
